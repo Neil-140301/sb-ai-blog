@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "name": "blog-ai",
+  "dependencies": {
+    "next": {
+      "version": "13.4.5",
+      "resolved": "https://registry.npmjs.org/next/-/next-13.4.5.tgz",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "18.2.0",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz",
+      "overridden": false
+    },
+    "react-icons": {
+      "version": "4.9.0",
+      "resolved": "https://registry.npmjs.org/react-icons/-/react-icons-4.9.0.tgz",
+      "overridden": false
+    },
+    "react": {
+      "version": "18.2.0",
+      "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
+      "overridden": false
+    }
+  }
+}
