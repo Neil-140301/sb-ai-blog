@@ -13,7 +13,7 @@ export default async function Topics({ searchParams }: PageProps) {
     categories.find((cat) => cat.name === searchParams["category"])?.name ??
     "All";
   const topics = await fetch(
-    `http://localhost:3000/topics/?category=${currentCategory}`,
+    `${process.env.PUBLIC_URL}/topics/?category=${currentCategory}`,
     {
       next: { tags: ["all_topics"] },
     }
