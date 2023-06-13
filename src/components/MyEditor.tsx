@@ -25,7 +25,7 @@ export default function MyEditor({ topic }: MyEditorProps) {
       <form className="no-scroll flex-[4.5] overflow-auto p-5">
         <Editor
           ref={editorRef}
-          tinymceScriptSrc={"http://localhost:3000/tinymce/tinymce.min.js"}
+          tinymceScriptSrc={"/tinymce/tinymce.min.js"}
           initialValue={text}
           init={{
             height: 400,
