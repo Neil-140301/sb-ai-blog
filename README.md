@@ -5,6 +5,14 @@ with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/
 
 Build and run the app locally:
 
+- Clone the repo and install dependencies
+
+```bash
+yarn 
+```
+
+- Initiate build and run the server
+
 ```bash
 yarn start:prod
 ```

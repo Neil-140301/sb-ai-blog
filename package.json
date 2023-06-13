@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "node setup.js && next build",
-    "start:prod": "node setup.js && next build && next start",
+    "start:prod": "node setup.js && prisma generate && next build && next start",
     "lint": "next lint"
   },
   "dependencies": {
