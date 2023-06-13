@@ -1,9 +1,10 @@
 import Tabs from "@/components/Tabs";
-import { PageProps } from "../utils/types";
-import { fetchCategories, fetchTopics } from "../utils/data";
+import { PageProps, Topic } from "../utils/types";
+import { fetchCategories } from "../utils/data";
 import Link from "next/link";
 import Keywords from "@/components/Keywords";
 import AddTopic from "@/components/AddTopic";
+import DeleteTopic from "@/components/Delete";
 import { removeTopic } from "@/app/utils/actions";
 
 export default async function Topics({ searchParams }: PageProps) {
@@ -11,7 +12,12 @@ export default async function Topics({ searchParams }: PageProps) {
   const currentCategory =
     categories.find((cat) => cat.name === searchParams["category"])?.name ??
     "All";
-  const topics = await fetchTopics(currentCategory);
+  const topics = await fetch(
+    `http://localhost:3000/topics/?category=${currentCategory}`,
+    {
+      next: { tags: ["all_topics"] },
+    }
+  ).then((res) => res.json() as Promise<Topic[]>);
 
   return (
     <div className="flex flex-col gap-5 p-10 pt-6">
@@ -53,17 +59,14 @@ export default async function Topics({ searchParams }: PageProps) {
                       <span className="btn-warning btn-sm btn">Write</span>
                     </Link>
 
-                    <form
-                      action={async () => {
+                    <DeleteTopic
+                      deleteFunction={async (path: string) => {
                         "use server";
-                        await removeTopic(topic.id);
+                        await removeTopic(topic.id, path);
                       }}
-                      className={"hidden group-hover:block"}
-                    >
-                      <button className="btn-error btn-sm btn">Delete</button>
-                    </form>
+                    />
 
-                    <div className="" />
+                    <div className="w-4" />
                   </div>
                 </td>
               </tr>
